@@ -6,6 +6,7 @@ const TWITTER_HANDLE = '_buildspace';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const App = () => {
+  
    const checkIfWalletIsConnected = async () => {
     if (window?.solana?.isPhantom) {
       console.log('Phantom wallet found!');
@@ -13,6 +14,15 @@ const App = () => {
       alert('Solana object not found! Get a Phantom Wallet 👻');
     }
   };
+  
+   useEffect(() => {
+    const onLoad = async () => {
+      await checkIfWalletIsConnected();
+    };
+    window.addEventListener('load', onLoad);
+    return () => window.removeEventListener('load', onLoad);
+  }, []);
+  
   return (
     <div className="App">
       <div className="container">
