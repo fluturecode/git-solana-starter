@@ -1,11 +1,18 @@
-import twitterLogo from './assets/twitter-logo.svg';
 import './App.css';
+import twitterLogo from './assets/twitter-logo.svg';
 
 // Constants
 const TWITTER_HANDLE = '_buildspace';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const App = () => {
+   const checkIfWalletIsConnected = async () => {
+    if (window?.solana?.isPhantom) {
+      console.log('Phantom wallet found!');
+    } else {
+      alert('Solana object not found! Get a Phantom Wallet 👻');
+    }
+  };
   return (
     <div className="App">
       <div className="container">
