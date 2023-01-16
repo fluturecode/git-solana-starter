@@ -2,12 +2,10 @@ import { useEffect } from 'react';
 import './App.css';
 import twitterLogo from './assets/twitter-logo.svg';
 
-// Constants
 const TWITTER_HANDLE = 'fluturecode';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
-const App = () => {
-  
+export const App = () => {
    const checkIfWalletIsConnected = async () => {
     if (window?.solana?.isPhantom) {
       console.log('Phantom wallet found!');
@@ -46,5 +44,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;
